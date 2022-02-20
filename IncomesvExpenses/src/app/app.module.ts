@@ -7,6 +7,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ShareModule } from './share/share.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthReducer } from './share/store/auth/auth.reducer';
+import { AuthEffects } from './share/store/auth/auth.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -17,8 +22,10 @@ import { ShareModule } from './share/share.module';
   imports: [
     BrowserModule,
     ShareModule,
-    DashboardModuleModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ AuthState: AuthReducer }),
+    EffectsModule.forRoot([AuthEffects]),
+    StoreDevtoolsModule.instrument({name: 'Test'})
   ],
   exports: [
     NotFoundComponent
