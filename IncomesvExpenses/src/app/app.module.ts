@@ -1,4 +1,3 @@
-import { DashboardModuleModule } from './dashboard-module/dashboard-module.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -23,7 +22,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     ShareModule,
     AppRoutingModule,
-    StoreModule.forRoot({ AuthState: AuthReducer }),
+    StoreModule.forRoot({ authState: AuthReducer }),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({name: 'Test'})
   ],

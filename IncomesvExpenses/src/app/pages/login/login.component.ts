@@ -1,9 +1,8 @@
 import { Session } from './../../share/domain/Session.interface';
-import { selectAuthSession, selectAuthSessionExist } from './../../share/store/auth/auth.selector';
+import { selectAuthSessionExist } from './../../share/store/auth/auth.selector';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { signUp } from 'src/app/share/store/auth/auth.actions';
-import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
