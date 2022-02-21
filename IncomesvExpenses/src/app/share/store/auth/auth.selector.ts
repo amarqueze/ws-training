@@ -1,10 +1,22 @@
-export const selectAuthSession = (state: any) => ({
-    hasSession: state.AuthState.hasSession,
-    session: state.AuthState.session,
-    hasError: state.AuthState.hasError,
-    error: state.AuthState.error
-});
+import { Session } from './../../domain/Session.interface';
+import { createSelector, select } from "@ngrx/store";
+import { AuthState } from "../../domain/AuthState.interface";
+import { pipe } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
-export const selectAuthIsChecking = (state: any) => state.AuthState.isChecking;
+export const selectAuth = ({ authState }: { authState: AuthState }) => authState;
 
-export const selectAuthIsSession = (state: any) => state.AuthState.hasSession;
+export const selectAuthSession = createSelector(
+    selectAuth,
+    (state: AuthState) => state.session!
+);
+
+export const selectAuthSessionExist = pipe(
+    select(selectAuthSession),
+    filter(session => session !== undefined)    
+);
+
+export const selectAuthIsChecking = createSelector(
+    selectAuth,
+    (state: AuthState) => state.isChecking
+);

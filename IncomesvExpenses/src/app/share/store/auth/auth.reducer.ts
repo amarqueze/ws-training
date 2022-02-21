@@ -11,11 +11,11 @@ export const initialState: AuthState = {
 
 export const AuthReducer = createReducer(
     initialState,
-    on(AuthActions.signUp, (state) => ({ 
-        ...state,
-        isChecking: true,
+    on(AuthActions.signUp, (state) => ({
+        ...state, 
+        isChecking: true 
     })),
-    on(AuthActions.successSignUp, (state, session) => ({ 
+    on(AuthActions.successSignUp, (state, session) => ({
         isChecking: false, 
         hasSession: true,
         session: session,
