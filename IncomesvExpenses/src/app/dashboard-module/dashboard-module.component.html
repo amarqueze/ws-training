@@ -1,2 +1,34 @@
-<p>dashboard-module works!</p>
-<router-outlet></router-outlet>
+<section class="dashboard">    
+    <header class="dashboard_header">
+        <div class="dashboard_title"> 
+            IncomesVExpenses           
+        </div>
+        <div class="dashboard_avatar">
+            <figure class="avatar avatar-lg">
+                <img src="/assets/avatar-1.png" alt="YZ">
+                <i class="avatar-presence busy"></i>
+            </figure>            
+        </div>
+    </header> 
+    <div class="dashboard_sidebar">
+        <div class="dashboard_sidebar_options">
+            <button class="btn">
+                <i class="icon icon-apps"></i>
+            </button>
+        </div>
+        <div class="dashboard_sidebar_logout">
+            <button class="btn">
+                <i class="icon icon-shutdown"></i>
+            </button>
+        </div>
+    </div>   
+    <div class="dashboard_content">
+        <router-outlet></router-outlet>
+    </div>
+</section>
+
+<div class="dashboard-button-sticky">
+    <button class="btn btn-primary btn-action btn-lg s-circle">
+        <i class="icon icon-plus"></i>
+    </button>
+</div>

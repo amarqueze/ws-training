@@ -1,1 +1,42 @@
-<p>home works!</p>
+<div class="home-content">
+    <div class="card">
+        <div class="card_title"> Total Incomes </div>
+        <div class="card_body"> ${{ totalIncomes | number: '1.2' }} </div>
+    </div>
+    <div class="card">
+        <div class="card_title"> Total Expenses </div>
+        <div class="card_body"> ${{ totalExpenses | number: '1.2' }}</div>
+    </div>
+    <div class="card">
+        <div class="card_title"> Free </div>
+        <div class="card_body"> ${{ free | number: '1.2' }} </div>
+    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 70%">Incomes</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let income of incomes">
+                <td>{{ income.description }}</td>
+                <td>${{ income.amount | number: '1.2' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 70%">Expenses</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let expense of expenses">
+                <td>{{ expense.description }}</td>
+                <td>${{ expense.amount | number: '1.2' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

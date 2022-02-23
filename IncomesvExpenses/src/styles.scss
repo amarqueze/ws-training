@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@import "variables";
+@import "node_modules/spectre.css/src/spectre";
+
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+  
+ol, ul {
+    list-style: none;
+}
+  
+blockquote, q {
+    quotes: none;
+}
+  
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+button {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.btn-lg .icon {
+    vertical-align: -12%;
+}
+
+.btn.btn-action.btn-lg {
+    height: 2.2rem;
+    width: 2.2rem;
+    box-shadow: 5px 4px 5px 0px rgba(0,0,0,0.4);
+}

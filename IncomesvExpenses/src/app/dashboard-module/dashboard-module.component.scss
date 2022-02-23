@@ -1,0 +1,76 @@
+@import "../../variables";
+
+.dashboard {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f2f6;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "sidebar main";
+
+    .dashboard_header {
+        grid-area: header;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: $primary-color;
+        box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.4);      
+
+        .dashboard_title {
+            color: #f1f2f6;
+            font-size: 24px;
+            padding-left: 1%;
+        }
+
+        .dashboard_avatar {            
+            padding-right: 1%;
+        }
+    }
+
+    .dashboard_content {
+        grid-area: main;
+        overflow: hidden;
+        padding: 15px;
+    }
+
+    .dashboard_sidebar {
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.4);
+        background: $secondary-color;
+
+        .btn {
+            background: none;
+            border: none;
+        }
+        
+        .dashboard_sidebar_options {
+            padding-top: 20px;
+        }
+
+        .dashboard_sidebar_options, .dashboard_sidebar_logout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .icon {
+                font-size: 18px;
+                color: #353b48;
+            }
+        }
+    }
+}
+
+.dashboard-button-sticky {
+    position: fixed;
+    bottom: 20px;
+    right: 18px;
+}
