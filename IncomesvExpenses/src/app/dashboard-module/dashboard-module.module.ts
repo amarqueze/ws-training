@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardModuleRoutingModule } from './dashboard-module-routing.module';
 import { DashboardModuleComponent } from './dashboard-module.component';
@@ -19,6 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     CommonModule,
     DashboardModuleRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(AccountFeature),
     EffectsModule.forFeature([AccountEffects])
   ]

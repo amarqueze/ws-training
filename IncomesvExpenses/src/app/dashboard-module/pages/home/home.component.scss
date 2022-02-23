@@ -29,6 +29,8 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
     gap: 10px;
 
     .table {

@@ -36,6 +36,7 @@
     .dashboard_content {
         grid-area: main;
         overflow: hidden;
+        overflow-y: scroll;
         padding: 15px;
     }
 
@@ -73,4 +74,15 @@
     position: fixed;
     bottom: 20px;
     right: 18px;
+}
+
+.modal-container {
+    color: black;
+    .modal-header {
+        color: black;
+    }
+}
+
+.form-input {
+    color: black;
 }
