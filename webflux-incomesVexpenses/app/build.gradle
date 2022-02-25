@@ -1,0 +1,17 @@
+apply plugin: 'org.springframework.boot'
+
+compileJava.options.encoding = 'UTF-8'
+
+dependencies {
+
+}
+
+task explodedJar(type: Copy) {
+    with jar
+    into "${buildDir}/exploded"
+}
+
+bootJar {
+    enabled = true
+    archivesBaseName = "incomesVexpenses"
+}
