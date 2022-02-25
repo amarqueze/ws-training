@@ -28,7 +28,9 @@ public class Account {
     }
 
     public void addNewIncome(String description, Amount amount) {
+        if(incomes.size() > 50) throw new ExcessiveIncomesException("Incomes has exceeded the established top");
         this.incomes.add(createNewIncome(description, amount));
+        this.totalIncomesCached = Optional.empty();
     }
 
     public void removeIncome(String idRecord) {
@@ -37,7 +39,9 @@ public class Account {
     }
 
     public void addNewExpense(String description, Amount amount) {
+        if(expenses.size() > 50) throw new ExcessiveIncomesException("Expenses has exceeded the established top");
         this.expenses.add(createNewExpense(description, amount));
+        this.totalExpensesCached = Optional.empty();
     }
 
     public void removeExpense(String idRecord) {
