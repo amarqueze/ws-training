@@ -6,7 +6,6 @@
  * Detailed information about configuring a multi-project build in Gradle can be found
  * in the user manual at https://docs.gradle.org/7.2/userguide/multi_project_builds.html
  */
-
 rootProject.name = 'incomesvexpenses'
 include ':app'
 project(':app').projectDir = file('./app')
@@ -14,3 +13,15 @@ include ':domain'
 project(':domain').projectDir = file('./domain')
 include ':usecase'
 project(':usecase').projectDir = file('./usecase')
+
+/**
+* Driven Adapters
+*/
+include ':mongodb-reactive-provider'
+project(':mongodb-reactive-provider').projectDir = file('./infrastructure/driven-adapters/mongodb-reactive-provider')
+
+/**
+* Entry-points (Driven Adapters)
+*/
+include ':rest-reactive-controller'
+project(':rest-reactive-controller').projectDir = file('./infrastructure/entry-points/rest-reactive-controller')
