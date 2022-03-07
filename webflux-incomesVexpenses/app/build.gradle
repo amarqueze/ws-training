@@ -3,7 +3,10 @@ apply plugin: 'org.springframework.boot'
 compileJava.options.encoding = 'UTF-8'
 
 dependencies {
-
+    implementation project(':domain')
+    implementation project(':usecase') 
+    implementation project(':rest-reactive-controller')
+    implementation project(':mongodb-reactive-provider')  
 }
 
 task explodedJar(type: Copy) {

@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      database: incomesvexpenses
+      port: 27017
+      host: 172.19.0.2
