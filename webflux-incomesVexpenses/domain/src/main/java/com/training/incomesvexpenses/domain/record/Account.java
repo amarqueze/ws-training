@@ -9,15 +9,16 @@ import java.util.stream.Collectors;
 import com.training.incomesvexpenses.domain.share.Amount;
 import com.training.incomesvexpenses.domain.share.Email;
 
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import static com.training.incomesvexpenses.domain.record.Record.createNewExpense;
 import static com.training.incomesvexpenses.domain.record.Record.createNewIncome;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(staticName = "of")
 public class Account {
-    @NonNull private final Email emailUser;
+    @NonNull @Getter private final Email emailUser;
     @NonNull private final List<Record> incomes;
     @NonNull private final List<Record> expenses;
     private Optional<Double> totalIncomesCached = Optional.empty();
@@ -28,7 +29,7 @@ public class Account {
     }
 
     public void addNewIncome(String description, Amount amount) {
-        if(incomes.size() > 50) throw new ExcessiveIncomesException("Incomes has exceeded the established top");
+        if(incomes.size() > 50) throw new ExcessiveIncomesException("Incomes has exceeded the established top (50)");
         this.incomes.add(createNewIncome(description, amount));
         this.totalIncomesCached = Optional.empty();
     }
@@ -39,7 +40,7 @@ public class Account {
     }
 
     public void addNewExpense(String description, Amount amount) {
-        if(expenses.size() > 50) throw new ExcessiveIncomesException("Expenses has exceeded the established top");
+        if(expenses.size() > 120) throw new ExcessiveIncomesException("Expenses has exceeded the established top (120)");
         this.expenses.add(createNewExpense(description, amount));
         this.totalExpensesCached = Optional.empty();
     }
@@ -55,7 +56,7 @@ public class Account {
         double acc = 0;
         totalIncomesCached = Optional.of(
             incomes.stream()
-            .map(r -> r.getAmount().getValue())
+            .map(r -> r.getAmount().toPrimitiveValue())
             .reduce(acc, (subtotal, current) -> subtotal + current)
         );
         return totalIncomesCached.get();
@@ -72,8 +73,8 @@ public class Account {
 
         double acc = 0;
         totalExpensesCached = Optional.of(
-            incomes.stream()
-            .map(r -> r.getAmount().getValue())
+            expenses.stream()
+            .map(r -> r.getAmount().toPrimitiveValue())
             .reduce(acc, (subtotal, current) -> subtotal + current)
         );
         return totalExpensesCached.get();
