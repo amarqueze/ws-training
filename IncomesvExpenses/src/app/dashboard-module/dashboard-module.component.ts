@@ -16,7 +16,7 @@ export class DashboardModuleComponent implements OnInit {
   recordForm = new FormGroup(
     {
       typeRecord: new FormControl(this.operation.INCOME, [Validators.required]),
-      description: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+      description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       amount: new FormControl(0, [Validators.required])
     }
   );

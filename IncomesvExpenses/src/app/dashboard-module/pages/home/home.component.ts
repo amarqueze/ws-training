@@ -38,12 +38,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       description: "Food",
       amount: 2000
     }));
-
-    this.store.dispatch(createNewRecord({
-      typeRecord: TypeRecord.EXPENSES,
-      description: "Others",
-      amount: 500
-    }));
   }
 
   ngOnDestroy(): void {
