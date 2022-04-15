@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let income of incomes; trackBy: trackByFn;">
-                <td>{{ income.description }}</td>
+                <td>{{ income.description | uppercase }}</td>
                 <td>${{ income.amount | number: '1.2' }}</td>
             </tr>
         </tbody>
@@ -34,7 +34,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let expense of expenses; trackBy: trackByFn;">
-                <td>{{ expense.description }}</td>
+                <td>{{ expense.description | uppercase }}</td>
                 <td>${{ expense.amount | number: '1.2' }}</td>
             </tr>
         </tbody>
