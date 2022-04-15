@@ -51,4 +51,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.expenses = account.expenses;
     this.free = account.balance;
   }
+
+  trackByFn(index: number, item: Record) {
+    return item.id;
+  }
 }
