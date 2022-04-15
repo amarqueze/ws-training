@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { AccountFeature } from './store/Account.reducer';
 import { AccountEffects } from './store/Account.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   imports: [
     CommonModule,
+    ShareModule,
     DashboardModuleRoutingModule,
     ReactiveFormsModule,
     StoreModule.forFeature(AccountFeature),

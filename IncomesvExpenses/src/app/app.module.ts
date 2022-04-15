@@ -26,9 +26,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({name: 'Test'})
   ],
-  exports: [
-    NotFoundComponent
-  ],
   providers: [],
   bootstrap: [AppComponent]
 })
